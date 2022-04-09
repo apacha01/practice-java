@@ -115,7 +115,7 @@ public class Vector {
     }
     
     //DECREASE SIZE, RESIZE IF NECESSARY
-    private void decreaseSize(){
+    private void decrementSize(){
         size--;
         if (size == (capacity/4)) {
             resize(arr, capacity/2);
@@ -126,13 +126,15 @@ public class Vector {
     public int pop(){
         int aux = arr[size - 1];
         arr[size - 1] = 0;
-        decreaseSize();
+        decrementSize();
         return aux;
     }
     
     //DELETES ITEM AT INDEX, SHIFTING ALL TRAILING ELEMENTS TO LEFT.
     public void delete(int index){
-        
+        moveTo(arr,index,'l');
+        arr[size-1] = 0;
+        decrementSize();
     }
     
     //LOOKS FOR ITEM AND REMOVES INDEX HOLDING IT (EVEN IF IN MULTIPLE PLACES).
