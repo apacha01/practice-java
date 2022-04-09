@@ -26,11 +26,7 @@ public class Vector {
     private int capacity = 0;
     private int[] arr;
     
-    public static void main(String[] args) {
-        
-    }
-    
-    //CONSTRUCTOR
+    //CONSTRUCTOR.
     public Vector(int size){
         this.size = size;
         this.capacity = size * 2;
@@ -57,14 +53,23 @@ public class Vector {
         return true;
     }
     
-    //RETURN VALUE AT GIVEN INDEX, BLOWS UP IF INDEX OUT OF BOUNDS.
+    //RETURN VALUE AT GIVEN INDEX, RETURN 0 IF INDEX OUT OF BOUNDS.
     public int at(int index){
+        try{return arr[index];}
+        catch(IndexOutOfBoundsException e){System.out.println("Ese indice no existe");}
         return 0;
     }
     
     //INSERTS ITEMS AT END.
     public void push(int item){
-        
+        if (isEmpty()) {
+            arr[0] = item;
+        }
+        arr[size] = item;               //[1,0,0,0,15] or [1,15,0,0,0]?? (INVESTIGATE) first one for now.
+        size++;
+        if (size == capacity) {
+            resize(arr, capacity*2);
+        }
     }
     
     //INSERTS ITEM AT INDEX, SHIFTS THAT INDEX`S VALUE AND TRAILING ELEMTS TO RIGHT.
@@ -98,7 +103,7 @@ public class Vector {
     }
     
     
-    private int[] resize(){
+    private int[] resize(int[] arrToResize, int newSize){
         int[] arr = {0,0};
         return arr;
     }
