@@ -7,7 +7,7 @@ Implement a vector (mutable array with automatic resizing):
     capacity() - number of items it can hold
     is_empty() - return true if empty
     at(index) - returns item at given index, blows up if index out of bounds
-    push(item) - 
+    push(item)
     insert(index, item) - inserts item at index, shifts that index's value and trailing elements to the right
     prepend(item) - insert item at start (can use insert above at index 0).
     pop() - remove from end, return value
@@ -22,14 +22,14 @@ Implement a vector (mutable array with automatic resizing):
 package arraysimplementation;
 
 public class Vector {
-    private int size = 0;
-    private int capacity = 0;
+    private static int size = 0;
+    private static int capacity = 0;
     private int[] arr;
     
     //CONSTRUCTOR.
-    public Vector(int size){
-        this.size = size;
-        this.capacity = size * 2;
+    public Vector(int capacity){
+        this.size = 0;
+        this.capacity = capacity;
         this.arr = new int[capacity];
     }
     
@@ -56,8 +56,16 @@ public class Vector {
     //RETURN VALUE AT GIVEN INDEX, RETURN 0 IF INDEX OUT OF BOUNDS.
     public int at(int index){
         try{return arr[index];}
-        catch(IndexOutOfBoundsException e){System.out.println("Ese indice no existe");}
+        catch(IndexOutOfBoundsException e){System.out.println("Ese indice no existe.");}
         return 0;
+    }
+    
+    //INCREMENTS SIZE AND RESIZE IF NECESSARY
+    private void incrementSize(){
+        size++;
+        if (size == capacity) {
+            resize(arr, capacity*2);
+        }
     }
     
     //INSERTS ITEMS AT END.
@@ -65,16 +73,39 @@ public class Vector {
         if (isEmpty()) {
             arr[0] = item;
         }
-        arr[size] = item;               //[1,0,0,0,15] or [1,15,0,0,0]?? (INVESTIGATE) first one for now.
-        size++;
-        if (size == capacity) {
-            resize(arr, capacity*2);
+        else{
+            arr[size] = item;
         }
+        incrementSize();
     }
     
     //INSERTS ITEM AT INDEX, SHIFTS THAT INDEX`S VALUE AND TRAILING ELEMTS TO RIGHT.
     public void insert(int index,int item){
-        
+        if (index > size) {
+            System.out.println("Ese indice no existe, utilice push() para agregar un elemento al final.");
+        }
+        else{
+            moveTo(arr,index,'r');
+            arr[index] = item;
+            incrementSize();
+        }
+    }
+    
+    //MOVE ELEMENTS OF AN ARRAY TO RIGHT OR LEFT DEPENDING ON INPUT
+    private void moveTo(int[] arr,int index,char c){
+        //MOVES ARRAY ELEMENTS TO RIGHT FROM INDEX (FOR THE INSERT METHOD)
+        if (c == 'r') {
+            for (int i = size; i > index + 1; i--) {
+                arr[i] = arr[i - 1];
+            }
+            arr[index] = 0;
+        }
+        //MOVES ARRAY ELEMENTS TO LEFT FROM INDEX (FOR THE DELETE METHOD)
+        else if (c == 'l'){
+            for (int i = index; i < size; i++) {
+                arr[i] = arr[i + 1];
+            }
+        }
     }
     
     //INSERT ITEM AT INDEX 0.
