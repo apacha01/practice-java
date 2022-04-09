@@ -23,10 +23,18 @@ package arraysimplementation;
 
 public class Vector {
     private int size = 0;
-    private int capacity = 16;
+    private int capacity = 0;
+    private int[] arr;
     
     public static void main(String[] args) {
         
+    }
+    
+    //CONSTRUCTOR
+    public Vector(int size){
+        this.size = size;
+        this.capacity = size * 2;
+        this.arr = new int[capacity];
     }
     
     //RETURN NUMBER OF ITEMS.
@@ -41,6 +49,11 @@ public class Vector {
     
     //RETURN TRUE IF ARR IS EMPTY, FALSE IF NOT.
     public boolean isEmpty(){
+        for (int item : arr){
+            if (item != 0) {
+                return false;
+            }
+        }
         return true;
     }
     
