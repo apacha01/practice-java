@@ -110,7 +110,8 @@ public class Vector {
     
     //INSERT ITEM AT INDEX 0.
     public void prepend(int item){
-        
+        if (isEmpty()) {arr[0] = item;}
+        else{insert(0,item);}
     }
     
     //REMOVES FROM END AND RETURN THE ITEM.
