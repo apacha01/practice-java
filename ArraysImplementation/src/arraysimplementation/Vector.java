@@ -24,7 +24,7 @@ package arraysimplementation;
 public class Vector {
     private static int size = 0;
     private static int capacity = 0;
-    private int[] arr;
+    private static int[] arr;
     
     //CONSTRUCTOR.
     public Vector(int capacity){
@@ -114,9 +114,20 @@ public class Vector {
         else{insert(0,item);}
     }
     
+    //DECREASE SIZE, RESIZE IF NECESSARY
+    private void decreaseSize(){
+        size--;
+        if (size == (capacity/4)) {
+            resize(arr, capacity/2);
+        }
+    }
+    
     //REMOVES FROM END AND RETURN THE ITEM.
     public int pop(){
-        return 0;
+        int aux = arr[size - 1];
+        arr[size - 1] = 0;
+        decreaseSize();
+        return aux;
     }
     
     //DELETES ITEM AT INDEX, SHIFTING ALL TRAILING ELEMENTS TO LEFT.
