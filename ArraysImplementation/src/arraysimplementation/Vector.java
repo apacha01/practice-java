@@ -64,7 +64,7 @@ public class Vector {
     private void incrementSize(){
         size++;
         if (size == capacity) {
-            resize(arr, capacity*2);
+            resize(capacity*2);
         }
     }
     
@@ -118,7 +118,7 @@ public class Vector {
     private void decrementSize(){
         size--;
         if (size == (capacity/4)) {
-            resize(arr, capacity/2);
+            resize(capacity/2);
         }
     }
     
@@ -147,8 +147,8 @@ public class Vector {
         return 0;
     }
     
-    
-    private int[] resize(int[] arrToResize, int newSize){
+    //RESIZE ARRAY TO SPECIFIED SIZE
+    private int[] resize(int newSize){
         int[] arr = {0,0};
         return arr;
     }
