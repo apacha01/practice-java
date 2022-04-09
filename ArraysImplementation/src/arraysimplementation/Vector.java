@@ -31,12 +31,12 @@ public class Vector {
     
     //RETURN NUMBER OF ITEMS.
     public int size(){
-        return 0;
+        return size;
     }
     
     //RETURN NUMBER OF ITEMS IT CAN HOLD.
     public int capacity(){
-        return 0;
+        return capacity;
     }
     
     //RETURN TRUE IF ARR IS EMPTY, FALSE IF NOT.
