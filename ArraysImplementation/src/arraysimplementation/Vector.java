@@ -52,12 +52,7 @@ public class Vector {
     
     //RETURN TRUE IF ARR IS EMPTY, FALSE IF NOT.
     public boolean isEmpty(){
-        for (int item : arr){
-            if (item != 0) {
-                return false;
-            }
-        }
-        return true;
+        return size <= 0;
     }
     
     //RETURN VALUE AT GIVEN INDEX, RETURN 0 IF INDEX OUT OF BOUNDS.
@@ -138,7 +133,7 @@ public class Vector {
         decrementSize();
     }
     
-    //LOOKS FOR ITEM AND REMOVES INDEX HOLDING IT (EVEN IF IN MULTIPLE PLACES).
+    //LOOKS FOR ITEM AND REMOVES INDEX HOLDING IT (EVEN IF IN MULTIPLE PLACES).                         NOT DONE!!!!!!!
     public void remove(int item){
         for (int i: arr) {
             if (i == item) {
