@@ -82,20 +82,19 @@ public class Vector {
             System.out.println("Ese indice no existe, utilice push() para agregar un elemento al final.");
         }
         else{
-            moveTo(arr,index,'r');
+            moveTo(index,'r');
             arr[index] = item;
             incrementSize();
         }
     }
     
     //MOVE ELEMENTS OF AN ARRAY TO RIGHT OR LEFT DEPENDING ON INPUT
-    private void moveTo(int[] arr,int index,char c){
+    private void moveTo(int index,char c){
         //MOVES ARRAY ELEMENTS TO RIGHT FROM INDEX (FOR THE INSERT METHOD)
         if (c == 'r') {
-            for (int i = size; i > index + 1; i--) {
+            for (int i = size; i > index; i--) {
                 arr[i] = arr[i - 1];
             }
-            arr[index] = 0;
         }
         //MOVES ARRAY ELEMENTS TO LEFT FROM INDEX (FOR THE DELETE METHOD)
         else if (c == 'l'){
@@ -128,7 +127,7 @@ public class Vector {
     
     //DELETES ITEM AT INDEX, SHIFTING ALL TRAILING ELEMENTS TO LEFT.
     public void delete(int index){
-        moveTo(arr,index,'l');
+        moveTo(index,'l');
         arr[size-1] = 0;
         decrementSize();
     }

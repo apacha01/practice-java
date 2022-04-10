@@ -24,13 +24,19 @@ public class Main {
         System.out.println("Imprimo si esta vacio: " + v1.isEmpty());
         System.out.println("Busco un numero en el array: " + v1.find(3));
         
+        System.out.println(v1.pop());
+        printData();
+        
         for (int i = 0; i < 3; i++) {
             v1.delete(i);
         }
+        
+        printData();
+        
         for (int i = 5; i > 3; i--) {
             v1.insert(i, i);
         }
-        System.out.println(v1.pop());
+        
         printData();
         
     }
