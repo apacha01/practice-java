@@ -26,7 +26,14 @@ public class Vector {
     private static int capacity = 0;
     private static int[] arr;
     
-    //CONSTRUCTOR.
+    //CONSTRUCTOR FOR UNKNOWN CAPACITY.
+    public Vector(){
+        this.size = 0;
+        this.capacity = 10;
+        this.arr = new int[capacity];
+    }
+    
+    //CONSTRUCTOR FOR KNOWN CAPACITY.
     public Vector(int capacity){
         this.size = 0;
         this.capacity = capacity;
@@ -139,17 +146,30 @@ public class Vector {
     
     //LOOKS FOR ITEM AND REMOVES INDEX HOLDING IT (EVEN IF IN MULTIPLE PLACES).
     public void remove(int item){
-        
+        for (int i: arr) {
+            if (i == item) {
+                
+            }
+        }
     }
     
     //LOOKS FOR ITEM AND RETURNS FIRST INDEX WITH THE VALUE. RETURN -1 IF NOT FOUND.
     public int find(int item){
-        return 0;
+        for (int i: arr) {
+            if (i == item) {
+                return i;
+            }
+        }
+        return -1;
     }
     
     //RESIZE ARRAY TO SPECIFIED SIZE
-    private int[] resize(int newSize){
-        int[] arr = {0,0};
-        return arr;
+    private void resize(int newSize){
+        int[] a = arr;
+        arr = new int[newSize];
+        for (int i = 0; i < size; i++) {
+            arr[i] = a[i];
+        }
+        capacity *= 2;
     }
 }
