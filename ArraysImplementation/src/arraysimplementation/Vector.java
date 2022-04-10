@@ -77,12 +77,7 @@ public class Vector {
     
     //INSERTS ITEMS AT END.
     public void push(int item){
-        if (isEmpty()) {
-            arr[0] = item;
-        }
-        else{
-            arr[size] = item;
-        }
+        arr[size] = item;
         incrementSize();
     }
     
@@ -117,8 +112,7 @@ public class Vector {
     
     //INSERT ITEM AT INDEX 0.
     public void prepend(int item){
-        if (isEmpty()) {arr[0] = item;}
-        else{insert(0,item);}
+        insert(0,item);
     }
     
     //DECREASE SIZE, RESIZE IF NECESSARY
