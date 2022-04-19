@@ -132,11 +132,12 @@ public class Vector {
         decrementSize();
     }
     
-    //LOOKS FOR ITEM AND REMOVES INDEX HOLDING IT (EVEN IF IN MULTIPLE PLACES).                         NOT DONE!!!!!!!
+    //LOOKS FOR ITEM AND REMOVES INDEX HOLDING IT (EVEN IF IN MULTIPLE PLACES).
     public void remove(int item){
-        for (int i: arr) {
-            if (i == item) {
-                
+        for (int i = 0; i < size; i++) {
+            if (item == arr[i]) {
+                this.delete(i);
+                i -= 2;
             }
         }
     }
@@ -152,12 +153,12 @@ public class Vector {
     }
     
     //RESIZE ARRAY TO SPECIFIED SIZE
-    private void resize(int newSize){
+    private void resize(int newCapacity){
         int[] a = arr;
-        arr = new int[newSize];
+        arr = new int[newCapacity];
         for (int i = 0; i < size; i++) {
             arr[i] = a[i];
         }
-        capacity *= 2;
+        capacity = newCapacity;
     }
 }

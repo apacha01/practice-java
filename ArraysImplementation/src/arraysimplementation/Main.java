@@ -27,15 +27,30 @@ public class Main {
         System.out.println(v1.pop());
         printData();
         
+        System.out.println("BORRANDO");
         for (int i = 0; i < 3; i++) {
             v1.delete(i);
         }
         
         printData();
         
+        System.out.println("INSERTANDO");
         for (int i = 5; i > 3; i--) {
             v1.insert(i, i);
         }
+        
+        System.out.println("AGREGANDO AL FINAL");
+        for (int i = 0; i < 10; i++) {
+            v1.push(3);
+        }
+        
+        printData();
+        
+        System.out.println("ELIMINANDO LOS 3");
+        v1.remove(3);
+        
+        v1.pop();
+        v1.pop();
         
         printData();
         
