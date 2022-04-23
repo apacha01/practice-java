@@ -13,6 +13,10 @@ public class Main {
         sl.pushFront(52);
         
         System.out.println(sl.size());
+        
+        for (int i = 0; i < sl.size(); i++) {
+            System.out.println(sl.valueAt(i));
+        }
     }
     
 }

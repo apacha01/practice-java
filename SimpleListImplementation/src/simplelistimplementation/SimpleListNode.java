@@ -10,6 +10,11 @@ public class SimpleListNode {
         this.next = next;
     }
     
+    public SimpleListNode(SimpleListNode next) {
+        value = 0;
+        this.next = next;
+    }
+    
     public int getValue() {
         return value;
     }

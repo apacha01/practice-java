@@ -35,8 +35,21 @@ public class SimpleList {
     }
     
     public int valueAt(int index){
+        SimpleListNode n = new SimpleListNode(head);
+        int i;
         
-        return 0;
+        if (index < 0 || index >= this.size()) {
+            System.out.print("NOT IN LIST ");
+            return 0;
+        }
+        
+        i = 0;
+        do {
+            n = n.getNext();
+            i++;
+        } while (i<index);
+        
+        return n.getValue();
     }
     
     public void pushFront(int value){
@@ -44,5 +57,4 @@ public class SimpleList {
        head = n;
        size++;
     }
-    
 }
