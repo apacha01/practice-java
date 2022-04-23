@@ -22,8 +22,27 @@ public class SimpleList {
     private static SimpleListNode head;
     
     public SimpleList(){
-        
+        size = 0;
+        head = null;
     }
     
+    public int size(){
+        return size;
+    }
+    
+    public boolean empty(){
+        return size == 0;
+    }
+    
+    public int valueAt(int index){
+        
+        return 0;
+    }
+    
+    public void pushFront(int value){
+       SimpleListNode n = new SimpleListNode(value,head);
+       head = n;
+       size++;
+    }
     
 }

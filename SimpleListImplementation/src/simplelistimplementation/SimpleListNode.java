@@ -5,6 +5,11 @@ public class SimpleListNode {
     private int value;
     private SimpleListNode next;
 
+    public SimpleListNode(int value, SimpleListNode next) {
+        this.value = value;
+        this.next = next;
+    }
+    
     public int getValue() {
         return value;
     }
