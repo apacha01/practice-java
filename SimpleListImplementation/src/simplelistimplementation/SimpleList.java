@@ -128,15 +128,47 @@ public class SimpleList {
         return tail.getValue();
     }
     
-    public void insert(int index,int value){}
+    public void insert(int index,int value){
+        if (index < 0 || index >= size) {
+            System.out.println("INDEX OUT OF BOUNDS ");
+	}
+	else if (index == 0) {
+		this.pushFront(value);
+	}
+	else if(index == size-1){
+		this.pushBack(value);
+	}
+	else {
+            SimpleListNode n = new SimpleListNode(value,head);
+            SimpleListNode aux = new SimpleListNode(head);
+            int i;
+            
+            i = 0;
+            do {
+                if (i<=index-1) {
+                    aux = n.getNext();
+                }
+                n.setNext(n.getNext().getNext());
+                i++;
+            } while (i < index);
+            aux.setNext(n);
+            size++;
+	}
+    }
     
-    public void erase(int index){}
+    public void erase(int index){
+        
+    }
    
     public int valueNfromEnd(int n){
         return 0;
     }
     
-    public void reverse(){}
+    public void reverse(){
+        
+    }
     
-    public void removeValue(int value){}
+    public void removeValue(int value){
+        
+    }
 }

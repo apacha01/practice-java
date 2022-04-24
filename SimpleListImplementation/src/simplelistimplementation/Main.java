@@ -26,6 +26,12 @@ public class Main {
         System.out.println(sl.back());
         
         printD();
+        
+        sl.insert(1, 1000);
+        sl.insert(4, 1500);
+        
+        printD();
+        
     }
     
     
