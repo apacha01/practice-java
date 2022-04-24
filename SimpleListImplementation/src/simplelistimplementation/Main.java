@@ -43,6 +43,14 @@ public class Main {
         System.out.println(sl.valueNfromEnd(0));
         System.out.println(sl.valueNfromEnd(2));
         System.out.println(sl.valueNfromEnd(5));
+        
+        sl.reverse();
+        
+        printD();
+        
+        sl.removeValue(1500);
+        
+        printD();
     }
     
     

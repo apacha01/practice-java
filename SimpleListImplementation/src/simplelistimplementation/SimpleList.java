@@ -36,7 +36,7 @@ public class SimpleList {
     }
     
     public int valueAt(int index){
-        SimpleListNode n = new SimpleListNode(head);
+        SimpleListNode n = head;
         int i;
         
         if (index < 0 || index >= size) {
@@ -49,10 +49,10 @@ public class SimpleList {
         }
         
         i = 0;
-        do {
+        while (i<index){
             n = n.getNext();
             i++;
-        } while (i<=index);
+        }
         
         return n.getValue();
     }
@@ -103,17 +103,17 @@ public class SimpleList {
             return 0;
         }
         
-        SimpleListNode n = new SimpleListNode(head);
+        SimpleListNode aux = head;
         int a = tail.getValue(), i;
         
         i = 0;
-        do {
-            n = n.getNext();
+        while (i < size - 2){
+            aux = aux.getNext();
             i++;
-        } while (i < size-1);
+        }
         
-        tail = n;
-        n.setNext(null);
+        tail = aux;
+        aux.setNext(null);
         
         size--;
         
@@ -140,7 +140,7 @@ public class SimpleList {
 	}
 	else {
             SimpleListNode n = new SimpleListNode(value,head);
-            SimpleListNode aux = new SimpleListNode(head);
+            SimpleListNode aux = head;
             int i;
             
             i = 0;
@@ -167,10 +167,9 @@ public class SimpleList {
 		this.popBack();
 	}
 	else {
-            SimpleListNode aux = new SimpleListNode(head);
+            SimpleListNode aux = head;
             int i;
             
-            aux = aux.getNext();
             i = 0;
             do {
                 if (i == index-1) {
@@ -203,10 +202,21 @@ public class SimpleList {
     }
     
     public void reverse(){
-        
+        for (int i = 0; i < size-1; i++) {
+            this.pushFront(valueAt(i+1));
+            erase(i+2);
+	}
     }
     
     public void removeValue(int value){
+        SimpleListNode aux = head;
         
+        for (int i = 0; i < size-1; i++) {
+            if (aux.getValue() == value) {
+                erase(i);
+                break;
+            }
+            aux = aux.getNext();
+	}
     }
 }
