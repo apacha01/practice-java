@@ -3,20 +3,29 @@ package simplelistimplementation;
 
 
 public class Main {
-
+    static SimpleList sl;
     public static void main(String[] args) {
-        SimpleList sl = new SimpleList();
+        sl = new SimpleList();
         
         sl.pushFront(10);
         sl.pushFront(11);
         sl.pushFront(16);
         sl.pushFront(52);
         
-        System.out.println(sl.size());
+        printD();
         
-        for (int i = 0; i < sl.size(); i++) {
-            System.out.println(sl.valueAt(i));
-        }
+        System.out.println(sl.popFront());
+        System.out.println(sl.popFront());
+        System.out.println(sl.popFront());
+        
+        printD();
     }
     
+    
+    public static void printD(){
+        System.out.println("SIZE: " + sl.size());
+        for (int i = 0; i < sl.size(); i++) {
+            System.out.println("ITEM [" + i + "]: " + sl.valueAt(i));
+        }
+    }
 }

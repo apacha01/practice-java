@@ -47,7 +47,7 @@ public class SimpleList {
         do {
             n = n.getNext();
             i++;
-        } while (i<index);
+        } while (i<=index);
         
         return n.getValue();
     }
@@ -56,5 +56,12 @@ public class SimpleList {
        SimpleListNode n = new SimpleListNode(value,head);
        head = n;
        size++;
+    }
+    
+    public int popFront(){
+        int a = head.getValue();
+        head = head.getNext();
+        size--;
+        return a;
     }
 }
