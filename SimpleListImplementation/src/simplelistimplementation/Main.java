@@ -39,6 +39,10 @@ public class Main {
         sl.erase(0);
         
         printD();
+        
+        System.out.println(sl.valueNfromEnd(0));
+        System.out.println(sl.valueNfromEnd(2));
+        System.out.println(sl.valueNfromEnd(5));
     }
     
     

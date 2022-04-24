@@ -184,7 +184,22 @@ public class SimpleList {
     }
    
     public int valueNfromEnd(int n){
-        return 0;
+        int valueNfromHead;
+	valueNfromHead = size - n - 1;
+        
+        if (n < 0 || n >= size) {
+            System.out.print("INDEX OUT OF BOUNDS ");
+            return 0;
+	}
+	else if (n == 0) {
+            return this.back();
+	}
+	else if(n == size-1){
+            return this.front();
+	}
+	else {
+            return this.valueAt(valueNfromHead);
+        }
     }
     
     public void reverse(){
