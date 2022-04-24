@@ -121,11 +121,11 @@ public class SimpleList {
     }
     
     public int front(){
-        return 0;
+        return head.getValue();
     }
    
     public int back(){
-        return 0;
+        return tail.getValue();
     }
     
     public void insert(int index,int value){}

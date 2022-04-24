@@ -22,6 +22,9 @@ public class Main {
         System.out.println(sl.popBack());
         System.out.println(sl.popBack());
         
+        System.out.println(sl.front());
+        System.out.println(sl.back());
+        
         printD();
     }
     
