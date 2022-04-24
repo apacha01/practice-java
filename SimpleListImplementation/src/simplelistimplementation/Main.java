@@ -29,9 +29,16 @@ public class Main {
         
         sl.insert(1, 1000);
         sl.insert(4, 1500);
+        sl.insert(3, 2);
+        sl.insert(0, 15);
         
         printD();
         
+        sl.erase(3);
+        sl.erase(5);
+        sl.erase(0);
+        
+        printD();
     }
     
     

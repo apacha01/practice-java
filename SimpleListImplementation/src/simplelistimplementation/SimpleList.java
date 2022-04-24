@@ -145,7 +145,7 @@ public class SimpleList {
             
             i = 0;
             do {
-                if (i<=index-1) {
+                if (i == index-1) {
                     aux = n.getNext();
                 }
                 n.setNext(n.getNext().getNext());
@@ -157,7 +157,30 @@ public class SimpleList {
     }
     
     public void erase(int index){
-        
+        if (index < 0 || index >= size) {
+            System.out.println("INDEX OUT OF BOUNDS ");
+	}
+	else if (index == 0) {
+		this.popFront();
+	}
+	else if(index == size-1){
+		this.popBack();
+	}
+	else {
+            SimpleListNode aux = new SimpleListNode(head);
+            int i;
+            
+            aux = aux.getNext();
+            i = 0;
+            do {
+                if (i == index-1) {
+                    aux.setNext(aux.getNext().getNext());
+                }
+                aux = aux.getNext();
+                i++;
+            } while (i < index);
+            size--;
+        }
     }
    
     public int valueNfromEnd(int n){
