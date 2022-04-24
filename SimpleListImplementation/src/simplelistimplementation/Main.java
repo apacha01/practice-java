@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args) {
         sl = new SimpleList();
         
-        sl.pushFront(10);
-        sl.pushFront(11);
-        sl.pushFront(16);
-        sl.pushFront(52);
+        for (int i = 0; i < 5; i++) {
+            sl.pushFront(i);
+            sl.pushBack(i+6);
+        }
         
         printD();
         

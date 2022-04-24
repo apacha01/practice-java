@@ -30,6 +30,4 @@ public class SimpleListNode {
     public void setNext(SimpleListNode next) {
         this.next = next;
     }
-    
-    
 }

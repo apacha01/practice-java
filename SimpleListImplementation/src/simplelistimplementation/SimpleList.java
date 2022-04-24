@@ -20,6 +20,7 @@ package simplelistimplementation;
 public class SimpleList {
     private static int size;
     private static SimpleListNode head;
+    private static SimpleListNode tail;
     
     public SimpleList(){
         size = 0;
@@ -53,7 +54,10 @@ public class SimpleList {
     }
     
     public void pushFront(int value){
-       SimpleListNode n = new SimpleListNode(value,head);
+        SimpleListNode n = new SimpleListNode(value,head);
+        if (size == 0) {
+            tail = n;
+        }
        head = n;
        size++;
     }
@@ -61,7 +65,49 @@ public class SimpleList {
     public int popFront(){
         int a = head.getValue();
         head = head.getNext();
+        if (size == 1) {
+            tail = head;
+        }
         size--;
         return a;
     }
+    
+    public void pushBack(int value){
+        SimpleListNode n = new SimpleListNode(value,null);
+        if (size == 0) {
+            tail = n;
+            head = n;
+        }
+        else{
+            tail.setNext(n);
+            tail = tail.getNext();
+        }
+        size++;
+    }
+    
+    public int popBack(){
+        
+        
+        return 0;
+    }
+    
+    public int front(){
+        return 0;
+    }
+   
+    public int back(){
+        return 0;
+    }
+    
+    public void insert(int index,int value){}
+    
+    public void erase(int index){}
+   
+    public int valueNfromEnd(int n){
+        return 0;
+    }
+    
+    public void reverse(){}
+    
+    public void removeValue(int value){}
 }
