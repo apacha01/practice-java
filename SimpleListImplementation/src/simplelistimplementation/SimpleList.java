@@ -39,8 +39,12 @@ public class SimpleList {
         SimpleListNode n = new SimpleListNode(head);
         int i;
         
-        if (index < 0 || index >= this.size()) {
+        if (index < 0 || index >= size) {
             System.out.print("NOT IN LIST ");
+            return -1;
+        }
+        else if (size == 0) {
+            System.out.println("EMPTY LIST ");
             return 0;
         }
         
@@ -63,12 +67,20 @@ public class SimpleList {
     }
     
     public int popFront(){
-        int a = head.getValue();
-        head = head.getNext();
-        if (size == 1) {
-            tail = head;
+        int a;
+        if (size == 0) {
+            System.out.println("EMPTY LIST ");
+            return 0;
         }
-        size--;
+        else{
+            a = head.getValue();
+            head = head.getNext();
+            if (size == 1) {
+                tail = head;
+            }
+            size--;
+        }
+        
         return a;
     }
     
@@ -86,9 +98,26 @@ public class SimpleList {
     }
     
     public int popBack(){
+        if (size == 0) {
+            System.out.println("EMPTY LIST ");
+            return 0;
+        }
         
+        SimpleListNode n = new SimpleListNode(head);
+        int a = tail.getValue(), i;
         
-        return 0;
+        i = 0;
+        do {
+            n = n.getNext();
+            i++;
+        } while (i < size-1);
+        
+        tail = n;
+        n.setNext(null);
+        
+        size--;
+        
+        return a;
     }
     
     public int front(){

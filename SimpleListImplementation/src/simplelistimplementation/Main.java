@@ -18,6 +18,10 @@ public class Main {
         System.out.println(sl.popFront());
         System.out.println(sl.popFront());
         
+        System.out.println(sl.popBack());
+        System.out.println(sl.popBack());
+        System.out.println(sl.popBack());
+        
         printD();
     }
     
